@@ -90,7 +90,7 @@
     <main class="max-w-7xl mx-auto w-full px-6 flex-1">
 
         <!-- Breadcrumb + Prev/Next -->
-        <div class="flex items-center justify-between py-8 border-b border-line">
+        <div class="flex flex-wrap items-center justify-between py-8 gap-3 border-b border-line">
             <div class="flex items-center gap-2 text-sm text-sub">
                 <a href="index.html" class="hover:text-primary transition-colors duration-150">Projects</a>
                 <span class="text-muted">/</span>
@@ -134,7 +134,7 @@
             <div class="sm:col-span-2">
                 <p class="text-sm text-primary font-medium uppercase tracking-widest mb-6">About</p>
                 <div class="text-sm text-sub leading-loose space-y-4">
-                    <p>PyDFile is a desktop PDF utility built in Python and packaged as a standalone Windows executable. The core idea is that it runs entirely on your machine with no internet connection needed, no files uploaded to a server, and nothing leaving the computer. Most online PDF tools require you to hand your documents to a third party, which matters when the files are private. PyDFile handles everything locally.</p>
+                    <p>PyDFile is a desktop PDF tool built in Python and packaged as a standalone Windows executable. The core idea is that it runs entirely on your machine with no internet connection needed, no files uploaded to a server, and nothing leaving the computer. Most online PDF tools require you to hand your documents to a third party, which matters when the files are private. PyDFile handles everything locally.</p>
                     <p>The app covers ten tools: merging multiple PDFs into one, splitting a PDF into separate pages or ranges, reordering pages, compressing file size, adding watermarks, adding page numbers, password-protecting a PDF, unlocking a password-protected PDF (if you own it), converting between PDF and image formats, and extracting all text content from a PDF. Each tool gets its own page in the interface with only the controls relevant to that task.</p>
                     <p>The interface is built with CustomTkinter, which handles dark and light mode natively. Under the hood, PDF manipulation goes through PyMuPDF for most operations and pikepdf for anything password-related, since the two libraries handle different aspects of the PDF spec more cleanly. The codebase splits into a core layer for PDF and image logic, a UI layer for reusable interface components, and a utilities layer for constants and file helpers, so adding a new tool means writing the logic and dropping in a new page without touching the rest.</p>
                     <p>The .exe is built with PyInstaller so anyone on Windows can run it without installing Python or any dependencies.</p>
@@ -223,7 +223,7 @@
         </section>
 
         <!-- Bottom Prev/Next -->
-        <div class="flex items-center justify-between py-8">
+        <div class="flex flex-wrap items-center justify-between py-8 gap-3">
             <a href="flip_decibel.html" class="text-sm text-sub hover:text-primary transition-colors duration-150">← Flip Decibel</a>
             <span class="text-sm text-sub opacity-30 cursor-not-allowed">Next →</span>
         </div>
