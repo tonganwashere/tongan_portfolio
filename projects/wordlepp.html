@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wordle++ - Hor Tongan</title>
-    <meta name="description" content="Wordle++, a terminal-based C++ word game." />
+    <meta name="description" content="Wordle++, a terminal-based C++ word game with accounts, leaderboards, and an admin mode." />
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png" />
@@ -27,6 +27,9 @@
             --color-muted: #777777;
             --color-primary: #f0eeea;
             --color-sub: #888888;
+        }
+        .media-viewer[hidden] {
+            display: none;
         }
     </style>
     <script>
@@ -55,26 +58,6 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
-    <style>
-        .screenshot-scroll::-webkit-scrollbar {
-            display: none;
-        }
-
-        .screenshot-scroll {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        .media-viewer[hidden] {
-            display: none;
-        }
-
-        .project-gallery-item {
-            scroll-snap-align: start;
-            width: 500px;
-            height: 320px;
-        }
-    </style>
 </head>
 
 <body class="bg-base text-primary font-sans antialiased min-h-screen flex flex-col">
@@ -105,6 +88,8 @@
     </nav>
 
     <main class="max-w-7xl mx-auto w-full px-6 flex-1">
+
+        <!-- Breadcrumb + Prev/Next -->
         <div class="flex items-center justify-between py-8 border-b border-line">
             <div class="flex items-center gap-2 text-sm text-sub">
                 <a href="index.html" class="hover:text-primary transition-colors duration-150">Projects</a>
@@ -113,183 +98,190 @@
             </div>
             <div class="flex gap-4 text-sm text-sub">
                 <span class="opacity-30 cursor-not-allowed">← Prev</span>
-                <a href="flip_decibel.html" class="hover:text-primary transition-colors duration-150">Next →</a>
+                <a href="flip_decibel.html" class="hover:text-primary transition-colors duration-150">Flip Decibel →</a>
             </div>
         </div>
 
         <!-- Project Header -->
         <section class="pt-14 pb-10 border-b border-line">
-            <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+            <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between mb-6">
                 <div>
                     <h1 class="text-4xl font-medium mb-4">Wordle++</h1>
-                    <p class="text-base text-sub leading-relaxed max-w-xl mb-6">Terminal-based Wordle clone with user
-                        accounts, leaderboards, and multiple game modes.</p>
+                    <p class="text-base text-sub leading-relaxed max-w-xl">
+                        Terminal Wordle clone written in C++. Four game modes, player accounts, a leaderboard, and a built-in admin panel, all running in the command line.
+                    </p>
                 </div>
                 <img src="../assets/images/projects/wordlepp/wordlepp_logo.png" alt="Wordle++ logo"
-                    class="h-20 w-20 object-contain opacity-90" />
+                    class="h-20 w-20 object-contain opacity-90 shrink-0" />
             </div>
-            <div class="flex flex-wrap gap-2">
-                <span class="text-xs text-muted border border-line rounded-full px-3 py-1">C++</span>
-                <span class="text-xs text-muted border border-line rounded-full px-3 py-1">FTXUI</span>
-                <span class="text-xs text-muted border border-line rounded-full px-3 py-1">nlohmann/json</span>
-            </div>
-        </section>
-
-        <!-- Screenshot Gallery -->
-        <section class="py-10 border-b border-line">
-            <div id="media-gallery" class="screenshot-scroll flex gap-4 overflow-x-auto scroll-smooth"
-                style="scroll-snap-type: x mandatory;">
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <video src="../assets/images/projects/wordlepp/wordlepp_vid.mp4"
-                        aria-label="Wordle++ showcase video" playsinline tabindex="-1" preload="metadata"
-                        class="h-full w-full object-cover"></video>
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/wordlepp/wordlepp_guest_menu.png" alt="Wordle++ guest menu"
-                        class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/wordlepp/wordlepp_game_modes.png" alt="Wordle++ game modes"
-                        class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/wordlepp/wordlepp_3_letters.png" alt="Wordle++ 3-letter mode"
-                        class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/wordlepp/wordlepp_5_letters.png" alt="Wordle++ 5-letter mode"
-                        class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/wordlepp/wordlepp_6_letters.png" alt="Wordle++ 6-letter mode"
-                        class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/wordlepp/wordlepp_pause_screen.png" alt="Wordle++ pause screen"
-                        class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/wordlepp/wordlepp_leaderboard.png" alt="Wordle++ leaderboard"
-                        class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/wordlepp/wordlepp_admin_menu.png" alt="Wordle++ admin menu"
-                        class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/wordlepp/wordlepp_admin_game.png" alt="Wordle++ admin game"
-                        class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/wordlepp/wordlepp_wordbank.png" alt="Wordle++ word bank"
-                        class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/wordlepp/wordlepp_delete_player.png"
-                        alt="Wordle++ delete player" class="h-full w-full object-cover" />
-                </button>
-
+            <div class="flex flex-wrap items-center gap-4">
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs text-muted border border-line rounded-full px-3 py-1">C++</span>
+                    <span class="text-xs text-muted border border-line rounded-full px-3 py-1">FTXUI</span>
+                    <span class="text-xs text-muted border border-line rounded-full px-3 py-1">nlohmann/json</span>
+                    <span class="text-xs text-muted border border-line rounded-full px-3 py-1">CMake</span>
+                </div>
+                <a href="https://github.com/TongAnWasHere/wordle_plus_plus" target="_blank" rel="noopener noreferrer"
+                    class="text-xs text-sub underline underline-offset-4 decoration-line hover:text-primary hover:decoration-muted transition-colors duration-150">
+                    GitHub repo →
+                </a>
             </div>
         </section>
 
-        <!-- Project Details -->
+        <!-- About + Details -->
         <section class="py-10 border-b border-line grid grid-cols-1 sm:grid-cols-3 gap-10">
             <div class="sm:col-span-2">
-                <p class="text-sm text-primary font-medium uppercase tracking-widest mb-6">About the project</p>
+                <p class="text-sm text-primary font-medium uppercase tracking-widest mb-6">About</p>
                 <div class="text-sm text-sub leading-loose space-y-4">
-                    <p>Wordle++ is a terminal-based word guessing game written in C++, based on the popular game Wordle
-                        published by The New York Times. The game runs entirely in the command line through a CMake
-                        build, requiring no external setup other than the build process. It uses FTXUI for the
-                        interface, giving a clean and responsive terminal UI, with color-coded gameplay board and
-                        real-time keyboard input. Word data is managed through JSON files using nlohmann/json, with a
-                        separate word bank for each game mode.</p>
-                    <p>This game offers four modes, 3, 5 and 6 letter word modes and a Daily Mode. There is a signup
-                        system where players can sign up for an account and their progress is tracked on a leaderboard
-                        keeping track of wins and streaks. Players can edit each word bank directly through the JSON
-                        files, but the game also has a built-in Admin Mode for managing the game without touching any
-                        files. Players can log in the admin account with (username: admin, password: admin123) where
-                        they will have access to two special panels that can add or remove words from any word bank and
-                        delete player accounts.</p>
-                    <p>Every line of code was written solo over the course of a month. Feature ideas and direction were
-                        developed collaboratively as a team.</p>
+                    <p>Wordle++ is a terminal word guessing game written in C++, based on the original Wordle by the New York Times. It runs entirely in the command line via a CMake build with no GUI, no browser, and no external setup beyond building the project. The interface is handled by FTXUI, which gives the game a proper terminal UI with color-coded tile states, real-time keyboard input, and navigable menus.</p>
+                    <p>The game has four modes: 3-letter, 5-letter, 6-letter, and a daily challenge. Players can sign up for an account and their stats (wins and current streak) are tracked on a persistent leaderboard. Word banks are stored as separate JSON files per mode using nlohmann/json, and can be edited directly in the files or managed through the game itself.</p>
+                    <p>The built-in Admin Mode is accessible by logging in with username "admin" and password "admin123". From there you get two panels: one for adding or removing words from any word bank, and one for deleting player accounts. It was designed so the game could be managed at runtime without anyone needing to open a file manually.</p>
+                    <p>Every line of code was written solo over about a month. Feature ideas and direction came from the team, but the implementation was all mine.</p>
                 </div>
             </div>
 
             <div>
                 <p class="text-sm text-primary font-medium uppercase tracking-widest mb-6">Details</p>
                 <div class="space-y-3 text-sm">
-                    <div class="flex justify-between">
+                    <div class="flex justify-between gap-4">
                         <span class="text-muted">Year</span>
                         <span class="text-sub">2026</span>
                     </div>
-                    <div class="flex justify-between">
+                    <div class="flex justify-between gap-4">
                         <span class="text-muted">Platform</span>
                         <span class="text-sub">Terminal</span>
                     </div>
-                    <div class="flex justify-between">
+                    <div class="flex justify-between gap-4">
+                        <span class="text-muted">Role</span>
+                        <span class="text-sub">Solo developer</span>
+                    </div>
+                    <div class="flex justify-between gap-4">
+                        <span class="text-muted">Duration</span>
+                        <span class="text-sub">~2 months</span>
+                    </div>
+                    <div class="flex justify-between gap-4">
                         <span class="text-muted">Status</span>
                         <span class="text-sub">Finished</span>
                     </div>
-                    <div class="flex justify-between">
+                    <div class="flex justify-between gap-4">
                         <span class="text-muted">GitHub</span>
-                        <a href="https://github.com/TongAnWasHere/wordle_plus_plus" target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center gap-1 text-sub underline underline-offset-4 decoration-sub hover:text-primary hover:decoration-primary transition-colors duration-150">repo
-                            →</a>
+                        <a href="https://github.com/TongAnWasHere/wordle_plus_plus" target="_blank" rel="noopener noreferrer"
+                            class="text-sub underline underline-offset-4 decoration-sub hover:text-primary hover:decoration-primary transition-colors duration-150">repo →</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Bottom prev/next -->
+        <!-- Screenshots -->
+        <section class="py-10 border-b border-line">
+            <p class="text-sm text-primary font-medium uppercase tracking-widest mb-6">Screenshots</p>
+            <div id="media-gallery" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+                <button type="button"
+                    class="relative aspect-video rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150 sm:col-span-2"
+                    data-label="Wordle++ showcase video">
+                    <video src="../assets/images/projects/wordlepp/wordlepp_vid.mp4"
+                        aria-label="Wordle++ showcase video" playsinline tabindex="-1" preload="metadata"
+                        class="h-full w-full object-cover"></video>
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-black/50">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="6,3 20,12 6,21"/></svg>
+                        </div>
+                    </div>
+                </button>
+
+                <button type="button"
+                    class="aspect-video rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/wordlepp/wordlepp_guest_menu.png" alt="Guest menu"
+                        class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-video rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/wordlepp/wordlepp_game_modes.png" alt="Game mode selection"
+                        class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-video rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/wordlepp/wordlepp_3_letters.png" alt="3-letter mode"
+                        class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-video rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/wordlepp/wordlepp_5_letters.png" alt="5-letter mode"
+                        class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-video rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/wordlepp/wordlepp_6_letters.png" alt="6-letter mode"
+                        class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-video rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/wordlepp/wordlepp_leaderboard.png" alt="Leaderboard"
+                        class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-video rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/wordlepp/wordlepp_admin_menu.png" alt="Admin menu"
+                        class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-video rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/wordlepp/wordlepp_admin_game.png" alt="Admin game panel"
+                        class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-video rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/wordlepp/wordlepp_wordbank.png" alt="Word bank editor"
+                        class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-video rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/wordlepp/wordlepp_pause_screen.png" alt="Pause screen"
+                        class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-video rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/wordlepp/wordlepp_delete_player.png" alt="Delete player panel"
+                        class="h-full w-full object-cover" />
+                </button>
+
+            </div>
+        </section>
+
+        <!-- Bottom Prev/Next -->
         <div class="flex items-center justify-between py-8">
             <span class="text-sm text-sub opacity-30 cursor-not-allowed">← Prev</span>
-            <a href="flip_decibel.html" class="text-sm text-sub hover:text-primary transition-colors duration-150">Next →</a>
+            <a href="flip_decibel.html" class="text-sm text-sub hover:text-primary transition-colors duration-150">Flip Decibel →</a>
         </div>
 
     </main>
 
+    <!-- Media Viewer -->
     <div id="media-viewer" class="media-viewer fixed inset-0 z-50 px-6 py-8 sm:px-10 sm:py-10" tabindex="-1"
         style="background-color: rgba(0, 0, 0, 0.85);" hidden>
         <button type="button" id="viewer-close"
             class="absolute right-5 top-5 z-20 h-11 w-11 text-lg text-primary hover:text-white transition-colors duration-150">
             x
         </button>
-
         <button type="button" id="viewer-prev"
             class="absolute left-5 top-1/2 z-20 h-11 w-11 -translate-y-1/2 text-2xl text-primary hover:text-white transition-colors duration-150">
             ←
         </button>
-
         <button type="button" id="viewer-next"
             class="absolute right-5 top-1/2 z-20 h-11 w-11 -translate-y-1/2 text-2xl text-primary hover:text-white transition-colors duration-150">
             →
         </button>
-
         <div class="mx-auto flex h-full max-w-6xl items-center justify-center">
             <div class="relative flex w-full flex-col items-center justify-center">
                 <div id="viewer-frame" class="flex min-h-[320px] w-full items-center justify-center overflow-hidden">

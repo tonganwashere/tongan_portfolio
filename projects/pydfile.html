@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PyDFile - Hor Tongan</title>
-    <meta name="description" content="PyDFile, a local-first desktop PDF utility." />
+    <meta name="description" content="PyDFile, a local-first desktop PDF utility built in Python. Merge, split, compress, protect, convert, and more, all offline." />
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png" />
@@ -27,6 +27,9 @@
             --color-muted: #777777;
             --color-primary: #f0eeea;
             --color-sub: #888888;
+        }
+        .media-viewer[hidden] {
+            display: none;
         }
     </style>
     <script>
@@ -55,26 +58,6 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
-    <style>
-        .screenshot-scroll::-webkit-scrollbar {
-            display: none;
-        }
-
-        .screenshot-scroll {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        .media-viewer[hidden] {
-            display: none;
-        }
-
-        .project-gallery-item {
-            scroll-snap-align: start;
-            width: 500px;
-            height: 320px;
-        }
-    </style>
 </head>
 
 <body class="bg-base text-primary font-sans antialiased min-h-screen flex flex-col">
@@ -105,6 +88,8 @@
     </nav>
 
     <main class="max-w-7xl mx-auto w-full px-6 flex-1">
+
+        <!-- Breadcrumb + Prev/Next -->
         <div class="flex items-center justify-between py-8 border-b border-line">
             <div class="flex items-center gap-2 text-sm text-sub">
                 <a href="index.html" class="hover:text-primary transition-colors duration-150">Projects</a>
@@ -112,151 +97,154 @@
                 <span class="text-primary">PyDFile</span>
             </div>
             <div class="flex gap-4 text-sm text-sub">
-                <a href="flip_decibel.html" class="hover:text-primary transition-colors duration-150">← Prev</a>
+                <a href="flip_decibel.html" class="hover:text-primary transition-colors duration-150">← Flip Decibel</a>
                 <span class="opacity-30 cursor-not-allowed">Next →</span>
             </div>
         </div>
 
         <!-- Project Header -->
         <section class="pt-14 pb-10 border-b border-line">
-            <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+            <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between mb-6">
                 <div>
                     <h1 class="text-4xl font-medium mb-4">PyDFile</h1>
-                    <p class="text-base text-sub leading-relaxed max-w-xl mb-6">Local desktop PDF tool for
-                        merging, splitting, organizing, converting, compressing, protecting, unlocking, and extracting
-                        text from PDFs.</p>
+                    <p class="text-base text-sub leading-relaxed max-w-xl">
+                        Local-first desktop PDF tool built in Python. Merging, splitting, compressing, watermarking, protecting, converting, extracting, all offline, packaged as a standalone Windows executable.
+                    </p>
                 </div>
                 <img src="../assets/images/projects/pydfile/pydfile_logo.png" alt="PyDFile logo"
-                    class="h-20 w-20 object-contain opacity-90" />
+                    class="h-20 w-20 object-contain opacity-90 shrink-0" />
             </div>
-            <div class="flex flex-wrap gap-2">
-                <span class="text-xs text-muted border border-line rounded-full px-3 py-1">Python</span>
-                <span class="text-xs text-muted border border-line rounded-full px-3 py-1">CustomTkinter</span>
-                <span class="text-xs text-muted border border-line rounded-full px-3 py-1">PyMuPDF</span>
-                <span class="text-xs text-muted border border-line rounded-full px-3 py-1">pikepdf</span>
-                <span class="text-xs text-muted border border-line rounded-full px-3 py-1">PyInstaller</span>
-            </div>
-        </section>
-
-        <!-- Screenshot Gallery -->
-        <section class="py-10 border-b border-line">
-            <div id="media-gallery" class="screenshot-scroll flex gap-4 overflow-x-auto scroll-smooth"
-                style="scroll-snap-type: x mandatory;">
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/pydfile/pydfile_dark.jpg" alt="PyDFile dark mode dashboard"
-                        class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/pydfile/pydfile_merge.jpg" alt="PyDFile merge PDFs tool"
-                        class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/pydfile/pydfile_number.jpg" alt="PyDFile page numbering tool"
-                        class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/pydfile/pydfile_image.jpg" alt="PyDFile image conversion tool"
-                        class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/pydfile/pydfile_extract.jpg" alt="PyDFile text extraction tool"
-                        class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/pydfile/pydfile_unlock.jpg" alt="PyDFile unlock PDF tool"
-                        class="h-full w-full object-cover" />
-                </button>
-
+            <div class="flex flex-wrap items-center gap-4">
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs text-muted border border-line rounded-full px-3 py-1">Python</span>
+                    <span class="text-xs text-muted border border-line rounded-full px-3 py-1">CustomTkinter</span>
+                    <span class="text-xs text-muted border border-line rounded-full px-3 py-1">PyMuPDF</span>
+                    <span class="text-xs text-muted border border-line rounded-full px-3 py-1">pikepdf</span>
+                    <span class="text-xs text-muted border border-line rounded-full px-3 py-1">PyInstaller</span>
+                </div>
+                <a href="https://github.com/TongAnWasHere/pydfile" target="_blank" rel="noopener noreferrer"
+                    class="text-xs text-sub underline underline-offset-4 decoration-line hover:text-primary hover:decoration-muted transition-colors duration-150">
+                    GitHub repo →
+                </a>
             </div>
         </section>
 
-        <!-- Project Details -->
+        <!-- About + Details -->
         <section class="py-10 border-b border-line grid grid-cols-1 sm:grid-cols-3 gap-10">
             <div class="sm:col-span-2">
-                <p class="text-sm text-primary font-medium uppercase tracking-widest mb-6">About the project</p>
+                <p class="text-sm text-primary font-medium uppercase tracking-widest mb-6">About</p>
                 <div class="text-sm text-sub leading-loose space-y-4">
-                    <p>PyDFile is a desktop PDF tool built in Python for everyday document tasks. It runs locally on
-                        the user's computer without requiring an internet connection, so files do not need to be uploaded to a server or passed through a web
-                        service. The app focuses on practical workflows such as merging PDFs, splitting page ranges,
-                        organizing pages, adding watermarks, adding page numbers, compressing files, protecting and
-                        unlocking PDFs, converting between PDFs and images, and extracting text.</p>
-                    <p>The interface is built with CustomTkinter and organizes each workflow into its own tool page.
-                        The codebase separates PDF and image operations into a core layer, reusable interface pieces
-                        into UI modules, and shared constants and file helpers into utilities, keeping the project easy to
-                        extend as more document tools are added.</p>
+                    <p>PyDFile is a desktop PDF utility built in Python and packaged as a standalone Windows executable. The core idea is that it runs entirely on your machine with no internet connection needed, no files uploaded to a server, and nothing leaving the computer. Most online PDF tools require you to hand your documents to a third party, which matters when the files are private. PyDFile handles everything locally.</p>
+                    <p>The app covers ten tools: merging multiple PDFs into one, splitting a PDF into separate pages or ranges, reordering pages, compressing file size, adding watermarks, adding page numbers, password-protecting a PDF, unlocking a password-protected PDF (if you own it), converting between PDF and image formats, and extracting all text content from a PDF. Each tool gets its own page in the interface with only the controls relevant to that task.</p>
+                    <p>The interface is built with CustomTkinter, which handles dark and light mode natively. Under the hood, PDF manipulation goes through PyMuPDF for most operations and pikepdf for anything password-related, since the two libraries handle different aspects of the PDF spec more cleanly. The codebase splits into a core layer for PDF and image logic, a UI layer for reusable interface components, and a utilities layer for constants and file helpers, so adding a new tool means writing the logic and dropping in a new page without touching the rest.</p>
+                    <p>The .exe is built with PyInstaller so anyone on Windows can run it without installing Python or any dependencies.</p>
                 </div>
             </div>
 
             <div>
                 <p class="text-sm text-primary font-medium uppercase tracking-widest mb-6">Details</p>
                 <div class="space-y-3 text-sm">
-                    <div class="flex justify-between">
+                    <div class="flex justify-between gap-4">
                         <span class="text-muted">Year</span>
                         <span class="text-sub">2026</span>
                     </div>
-                    <div class="flex justify-between">
+                    <div class="flex justify-between gap-4">
                         <span class="text-muted">Platform</span>
                         <span class="text-sub">Windows Desktop</span>
                     </div>
-                    <div class="flex justify-between">
+                    <div class="flex justify-between gap-4">
+                        <span class="text-muted">Role</span>
+                        <span class="text-sub">Solo developer</span>
+                    </div>
+                    <div class="flex justify-between gap-4">
+                        <span class="text-muted">Duration</span>
+                        <span class="text-sub">~2 months</span>
+                    </div>
+                    <div class="flex justify-between gap-4">
                         <span class="text-muted">Status</span>
                         <span class="text-sub">Finished</span>
                     </div>
-                    <div class="flex justify-between">
+                    <div class="flex justify-between gap-4">
                         <span class="text-muted">GitHub</span>
-                        <a href="https://github.com/TongAnWasHere/pydfile" target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center gap-1 text-sub underline underline-offset-4 decoration-sub hover:text-primary hover:decoration-primary transition-colors duration-150">repo
-                            →</a>
+                        <a href="https://github.com/TongAnWasHere/pydfile" target="_blank" rel="noopener noreferrer"
+                            class="text-sub underline underline-offset-4 decoration-sub hover:text-primary hover:decoration-primary transition-colors duration-150">repo →</a>
                     </div>
-                    <div class="flex justify-between">
-                        <span class="text-muted">Windows</span>
-                        <a href="https://github.com/TongAnWasHere/pydfile/releases/tag/v1.0.0" target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center gap-1 text-sub underline underline-offset-4 decoration-sub hover:text-primary hover:decoration-primary transition-colors duration-150">download
-                            →</a>
+                    <div class="flex justify-between gap-4">
+                        <span class="text-muted">Download</span>
+                        <a href="https://github.com/TongAnWasHere/pydfile/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer"
+                            class="text-sub underline underline-offset-4 decoration-sub hover:text-primary hover:decoration-primary transition-colors duration-150">v1.0.0 →</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Bottom prev/next -->
+        <!-- Screenshots -->
+        <section class="py-10 border-b border-line">
+            <p class="text-sm text-primary font-medium uppercase tracking-widest mb-6">Screenshots</p>
+            <div id="media-gallery" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+                <button type="button"
+                    class="aspect-video rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150 sm:col-span-2">
+                    <img src="../assets/images/projects/pydfile/pydfile_dark.jpg" alt="Dashboard, dark mode"
+                        class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-video rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/pydfile/pydfile_merge.jpg" alt="Merge PDFs"
+                        class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-video rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/pydfile/pydfile_number.jpg" alt="Page numbering"
+                        class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-video rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/pydfile/pydfile_image.jpg" alt="Image conversion"
+                        class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-video rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/pydfile/pydfile_extract.jpg" alt="Text extraction"
+                        class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-video rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/pydfile/pydfile_unlock.jpg" alt="Unlock PDF"
+                        class="h-full w-full object-cover" />
+                </button>
+
+            </div>
+        </section>
+
+        <!-- Bottom Prev/Next -->
         <div class="flex items-center justify-between py-8">
-            <a href="flip_decibel.html" class="text-sm text-sub hover:text-primary transition-colors duration-150">← Prev</a>
+            <a href="flip_decibel.html" class="text-sm text-sub hover:text-primary transition-colors duration-150">← Flip Decibel</a>
             <span class="text-sm text-sub opacity-30 cursor-not-allowed">Next →</span>
         </div>
 
     </main>
 
+    <!-- Media Viewer -->
     <div id="media-viewer" class="media-viewer fixed inset-0 z-50 px-6 py-8 sm:px-10 sm:py-10" tabindex="-1"
         style="background-color: rgba(0, 0, 0, 0.85);" hidden>
         <button type="button" id="viewer-close"
             class="absolute right-5 top-5 z-20 h-11 w-11 text-lg text-primary hover:text-white transition-colors duration-150">
             x
         </button>
-
         <button type="button" id="viewer-prev"
             class="absolute left-5 top-1/2 z-20 h-11 w-11 -translate-y-1/2 text-2xl text-primary hover:text-white transition-colors duration-150">
             ←
         </button>
-
         <button type="button" id="viewer-next"
             class="absolute right-5 top-1/2 z-20 h-11 w-11 -translate-y-1/2 text-2xl text-primary hover:text-white transition-colors duration-150">
             →
         </button>
-
         <div class="mx-auto flex h-full max-w-6xl items-center justify-center">
             <div class="relative flex w-full flex-col items-center justify-center">
                 <div id="viewer-frame" class="flex min-h-[320px] w-full items-center justify-center overflow-hidden">
@@ -278,6 +266,7 @@
 
     <script src="../assets/js/theme.js"></script>
     <script src="../assets/js/media-viewer.js"></script>
+
 </body>
 
 </html>

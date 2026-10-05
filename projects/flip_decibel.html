@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flip Decibel - Hor Tongan</title>
-    <meta name="description" content="Flip Decibel, a rigged Android coin-flip app." />
+    <meta name="description" content="Flip Decibel, an Android coin-flip app with 3D OpenGL ES rendering and a hidden volume-based rigging mechanic." />
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png" />
@@ -27,6 +27,9 @@
             --color-muted: #777777;
             --color-primary: #f0eeea;
             --color-sub: #888888;
+        }
+        .media-viewer[hidden] {
+            display: none;
         }
     </style>
     <script>
@@ -55,26 +58,6 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
-    <style>
-        .screenshot-scroll::-webkit-scrollbar {
-            display: none;
-        }
-
-        .screenshot-scroll {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        .media-viewer[hidden] {
-            display: none;
-        }
-
-        .project-gallery-item {
-            scroll-snap-align: start;
-            width: 250px;
-            height: 510px;
-        }
-    </style>
 </head>
 
 <body class="bg-base text-primary font-sans antialiased min-h-screen flex flex-col">
@@ -105,6 +88,8 @@
     </nav>
 
     <main class="max-w-7xl mx-auto w-full px-6 flex-1">
+
+        <!-- Breadcrumb + Prev/Next -->
         <div class="flex items-center justify-between py-8 border-b border-line">
             <div class="flex items-center gap-2 text-sm text-sub">
                 <a href="index.html" class="hover:text-primary transition-colors duration-150">Projects</a>
@@ -112,156 +97,159 @@
                 <span class="text-primary">Flip Decibel</span>
             </div>
             <div class="flex gap-4 text-sm text-sub">
-                <a href="wordlepp.html" class="hover:text-primary transition-colors duration-150">← Prev</a>
-                <a href="pydfile.html" class="hover:text-primary transition-colors duration-150">Next →</a>
+                <a href="wordlepp.html" class="hover:text-primary transition-colors duration-150">← Wordle++</a>
+                <a href="pydfile.html" class="hover:text-primary transition-colors duration-150">PyDFile →</a>
             </div>
         </div>
 
         <!-- Project Header -->
         <section class="pt-14 pb-10 border-b border-line">
-            <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+            <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between mb-6">
                 <div>
                     <h1 class="text-4xl font-medium mb-4">Flip Decibel</h1>
-                    <p class="text-base text-sub leading-relaxed max-w-xl mb-6">Android coin-flip app with 3D OpenGL ES rendering
-                        and a hidden volume-based rigging mechanic.</p>
+                    <p class="text-base text-sub leading-relaxed max-w-xl">
+                        Android coin-flip app with a 3D coin rendered in OpenGL ES 2.0, a full skin system, and a hidden Rig Mode that ties the result to your phone's volume level.
+                    </p>
                 </div>
                 <img src="../assets/images/projects/flip_decibel/flip_decibel_logo.png" alt="Flip Decibel logo"
-                    class="h-20 w-20 object-contain opacity-90" />
+                    class="h-20 w-20 object-contain opacity-90 shrink-0" />
             </div>
             <div class="flex flex-wrap gap-2">
                 <span class="text-xs text-muted border border-line rounded-full px-3 py-1">Java</span>
                 <span class="text-xs text-muted border border-line rounded-full px-3 py-1">Android</span>
                 <span class="text-xs text-muted border border-line rounded-full px-3 py-1">OpenGL ES 2.0</span>
-                <span class="text-xs text-muted border border-line rounded-full px-3 py-1">Play Store</span>
+                <span class="text-xs text-muted border border-line rounded-full px-3 py-1">SharedPreferences</span>
             </div>
         </section>
 
-        <!-- Screenshot Gallery -->
-        <section class="py-10 border-b border-line">
-            <div id="media-gallery" class="screenshot-scroll flex gap-4 overflow-x-auto scroll-smooth"
-                style="scroll-snap-type: x mandatory;">
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <video src="../assets/images/projects/flip_decibel/flip_decibel_showcase.mp4"
-                        aria-label="Flip Decibel showcase video" playsinline tabindex="-1" preload="metadata"
-                        class="h-full w-full object-cover"></video>
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/flip_decibel/flip_decibel_starter_screen.jpg"
-                        alt="Flip Decibel Starter Screen" class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/flip_decibel/flip_decibel_settings.jpg"
-                        alt="Flip Decibel Settings" class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/flip_decibel/flip_decibel_settings2.jpg"
-                        alt="Flip Decibel Settings 2" class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/flip_decibel/flip_decibel_heads.jpg" alt="Flip Decibel Heads"
-                        class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/flip_decibel/flip_decibel_dog.jpg" alt="Flip Decibel Dog Skin"
-                        class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/flip_decibel/flip_decibel_cat.jpg" alt="Flip Decibel Cat Skin"
-                        class="h-full w-full object-cover" />
-                </button>
-
-                <button type="button"
-                    class="project-gallery-item flex-shrink-0 rounded-lg overflow-hidden bg-surface border border-line text-left cursor-pointer">
-                    <img src="../assets/images/projects/flip_decibel/flip_decibel_altered_text.jpg"
-                        alt="Flip Decibel Altered Text Skin" class="h-full w-full object-cover" />
-                </button>
-
-            </div>
-        </section>
-
-        <!-- Project Details -->
+        <!-- About + Details -->
         <section class="py-10 border-b border-line grid grid-cols-1 sm:grid-cols-3 gap-10">
             <div class="sm:col-span-2">
-                <p class="text-sm text-primary font-medium uppercase tracking-widest mb-6">About the project</p>
+                <p class="text-sm text-primary font-medium uppercase tracking-widest mb-6">About</p>
                 <div class="text-sm text-sub leading-loose space-y-4">
-                    <p>Flip Decibel is a customizable coin flipper app for Android. It's built in Java using Android
-                        Studio. The coin is rendered in 3D with OpenGL ES 2.0 and has a smooth flip animation that can
-                        be adjusted with the animation speed slider. It's a simple app that flips a coin, but is also a
-                        hidden pranking tool.</p>
-                    <p>The app features a Rig Mode that links the coin result to the volume level of the phone. If Rig
-                        Mode is enabled, then any flip above 50% volume will always land heads and any flip below will
-                        always land tails, giving the user silent control over every flip. Additionally, the coin can be
-                        individually customized on each side with a skin system including, but not limited to, text
-                        labels, custom images and animal skins such as dog, cat, monkey, bear, duck and chicken (more
-                        incoming). All the settings and preferences are stored locally using SharedPreferences.</p>
-                    <p>Flip Decibel was developed solo over a period of two months, and was the first Android
-                        application I have ever developed with no experience in Android development or OpenGL ES.</p>
+                    <p>Flip Decibel is a coin-flip app for Android. The coin is rendered in 3D using OpenGL ES 2.0 with a smooth flip animation, and you can adjust the animation speed with a slider in settings. On the surface it's a simple coin flipper but actually it's a pranking tool.</p>
+                    <p>The app has a hidden Rig Mode. When enabled, the coin result is quietly tied to the phone's volume level: anything above 50% volume lands heads, anything below lands tails. The person being pranked sees a normal coin flip with no indication that anything is rigged. You control the outcome by adjusting your volume before each flip.</p>
+                    <p>Each side of the coin can be customized independently through a skin system. Options include custom text labels, uploaded images, and a set of animal skins: dog, cat, monkey, bear, duck, and chicken, with more planned. All settings and skin choices are stored locally using SharedPreferences so they persist between sessions.</p>
+                    <p>This was my first Android project and my first time working with OpenGL. I had no prior experience in either before starting it. It took about two months to build solo.</p>
                 </div>
             </div>
 
             <div>
                 <p class="text-sm text-primary font-medium uppercase tracking-widest mb-6">Details</p>
                 <div class="space-y-3 text-sm">
-                    <div class="flex justify-between">
+                    <div class="flex justify-between gap-4">
                         <span class="text-muted">Year</span>
                         <span class="text-sub">2026</span>
                     </div>
-                    <div class="flex justify-between">
+                    <div class="flex justify-between gap-4">
                         <span class="text-muted">Platform</span>
                         <span class="text-sub">Android</span>
                     </div>
-                    <div class="flex justify-between">
+                    <div class="flex justify-between gap-4">
+                        <span class="text-muted">Role</span>
+                        <span class="text-sub">Solo developer</span>
+                    </div>
+                    <div class="flex justify-between gap-4">
+                        <span class="text-muted">Duration</span>
+                        <span class="text-sub">~2 months</span>
+                    </div>
+                    <div class="flex justify-between gap-4">
                         <span class="text-muted">Status</span>
                         <span class="text-sub">Finished</span>
                     </div>
-                    <div class="flex justify-between">
+                    <div class="flex justify-between gap-4">
                         <span class="text-muted">Play Store</span>
-                        <p class="inline-flex items-center gap-1 text-sub decoration-sub hover:text-primary hover:decoration-primary transition-colors duration-150">
-                            Coming soon!</p>
+                        <span class="text-sub">Coming soon</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Bottom prev/next -->
+        <!-- Screenshots -->
+        <section class="py-10 border-b border-line">
+            <p class="text-sm text-primary font-medium uppercase tracking-widest mb-6">Screenshots</p>
+            <div id="media-gallery" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+
+                <button type="button"
+                    class="relative aspect-[9/16] rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <video src="../assets/images/projects/flip_decibel/flip_decibel_showcase.mp4"
+                        aria-label="Flip Decibel showcase video" playsinline tabindex="-1" preload="metadata"
+                        class="h-full w-full object-cover"></video>
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-black/50">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="6,3 20,12 6,21"/></svg>
+                        </div>
+                    </div>
+                </button>
+
+                <button type="button"
+                    class="aspect-[9/16] rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/flip_decibel/flip_decibel_starter_screen.jpg"
+                        alt="Starter screen" class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-[9/16] rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/flip_decibel/flip_decibel_heads.jpg"
+                        alt="Coin result: heads" class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-[9/16] rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/flip_decibel/flip_decibel_settings.jpg"
+                        alt="Settings panel" class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-[9/16] rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/flip_decibel/flip_decibel_settings2.jpg"
+                        alt="Settings panel 2" class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-[9/16] rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/flip_decibel/flip_decibel_dog.jpg"
+                        alt="Dog skin" class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-[9/16] rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/flip_decibel/flip_decibel_cat.jpg"
+                        alt="Cat skin" class="h-full w-full object-cover" />
+                </button>
+
+                <button type="button"
+                    class="aspect-[9/16] rounded-lg overflow-hidden bg-surface border border-line cursor-pointer hover:opacity-90 transition-opacity duration-150">
+                    <img src="../assets/images/projects/flip_decibel/flip_decibel_altered_text.jpg"
+                        alt="Custom text labels" class="h-full w-full object-cover" />
+                </button>
+
+            </div>
+        </section>
+
+        <!-- Bottom Prev/Next -->
         <div class="flex items-center justify-between py-8">
-            <a href="wordlepp.html" class="text-sm text-sub hover:text-primary transition-colors duration-150">← Prev</a>
-            <a href="pydfile.html" class="text-sm text-sub hover:text-primary transition-colors duration-150">Next →</a>
+            <a href="wordlepp.html" class="text-sm text-sub hover:text-primary transition-colors duration-150">← Wordle++</a>
+            <a href="pydfile.html" class="text-sm text-sub hover:text-primary transition-colors duration-150">PyDFile →</a>
         </div>
 
     </main>
 
+    <!-- Media Viewer -->
     <div id="media-viewer" class="media-viewer fixed inset-0 z-50 px-6 py-8 sm:px-10 sm:py-10" tabindex="-1"
         style="background-color: rgba(0, 0, 0, 0.85);" hidden>
         <button type="button" id="viewer-close"
             class="absolute right-5 top-5 z-20 h-11 w-11 text-lg text-primary hover:text-white transition-colors duration-150">
             x
         </button>
-
         <button type="button" id="viewer-prev"
             class="absolute left-5 top-1/2 z-20 h-11 w-11 -translate-y-1/2 text-2xl text-primary hover:text-white transition-colors duration-150">
             ←
         </button>
-
         <button type="button" id="viewer-next"
             class="absolute right-5 top-1/2 z-20 h-11 w-11 -translate-y-1/2 text-2xl text-primary hover:text-white transition-colors duration-150">
             →
         </button>
-
         <div class="mx-auto flex h-full max-w-6xl items-center justify-center">
             <div class="relative flex w-full flex-col items-center justify-center">
                 <div id="viewer-frame" class="flex min-h-[320px] w-full items-center justify-center overflow-hidden">
